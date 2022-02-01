@@ -1,0 +1,95 @@
+# -*- coding: utf-8 -*-
+
+<guiapp>
+
+    recognised_text: recognised_text
+    accuracy: accuracy
+    img: img
+    
+	BoxLayout:
+		orientation: "vertical"
+		padding: 15
+		size: root.width, root.height
+
+		BoxLayout:
+			orientation: "horizontal"
+			padding: 5
+			spacing : 10
+			size_hint: 1, 0.85
+
+			Image:
+				id: img
+				size_hint: 0.7, 1
+				source: ""
+
+			BoxLayout:
+				orientation: "vertical"
+				spacing: 25
+				size_hint: 0.3, 1
+
+				BoxLayout:
+					orientation: "vertical"
+					spacing: 0
+
+					Label:
+						text: "Recognised Text"
+						background_color: (0.91, 0.8, 0.24, 1)
+						canvas.before:
+							Color:
+								rgba: self.background_color
+							Rectangle:
+								size: self.size
+								pos: self.pos
+
+					Label:
+						text: "Python"
+						id: recognised_text
+						background_color: (0.1, 0.5, 1, 1)
+						canvas.before:
+							Color:
+								rgba: self.background_color
+							Rectangle:
+								size: self.size
+								pos: self.pos
+
+				BoxLayout:
+					orientation: "vertical"
+					spacing: 0
+
+					Label:
+						text: "Accuracy"
+						background_color: (0.91, 0.8, 0.24, 1)
+						canvas.before:
+							Color:
+								rgba: self.background_color
+							Rectangle:
+								size: self.size
+								pos: self.pos
+
+					Label:
+						text: "76%"
+						id: accuracy
+						background_color: (0.1, 0.5, 1, 1)
+						canvas.before:
+							Color:
+								rgba: self.background_color
+							Rectangle:
+								size: self.size
+								pos: self.pos
+
+				Button:
+					text: "Recognise"
+
+		BoxLayout:
+			padding: 5
+			spacing: 10
+			size_hint: 1, 0.15
+
+			Button:
+				text: "Clear"
+
+			Button:
+				text: "Load Scan"
+				on_release: root.filebrowser()
+				
+
